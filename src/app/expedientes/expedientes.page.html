@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>expedientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+<ion-grid>
+  <ion-row >
+    <ion-col *ngFor="let expediente of expedientes" size="12" size-md="3" >
+      <ion-card>
+        <ion-card-header>
+          <ion-avatar>
+            <img [src]=' expediente.foto && expediente.foto.formats.small.url ?
+          "http://localhost:1337" + expediente.foto.formats.small.url :
+          "https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482930.jpg" '>
+          </ion-avatar>
+          <ion-card-title>
+            {{expediente.nombre}}
+          </ion-card-title>
+          <ion-card-subtitle>
+            {{ expediente.numeroCelular ? expediente.numeroCelular : "#5533333333" }}
+          </ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          <!--<img [src]='
+          "http://localhost:1337" + expediente.foto.formats.small.url ' > -->
+        <div>
+          <ion-button color="success">
+            Actualizar
+          </ion-button>
+          <ion-button color="danger">
+            Borrar
+          </ion-button>
+        </div>
+        </ion-card-content>
+      </ion-card>
+  
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<!--boton-->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="danger">
+    <ion-icon name="add">
+
+    </ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>
